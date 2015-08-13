@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<bean id="themeBundle" class="net.sf.jasperreports.chartthemes.ChartThemeMapBundle">
+	<!--<bean id="themeBundle" class="net.sf.jasperreports.chartthemes.ChartThemeMapBundle">
 		<property name="themes">
 			<map>
 				<entry key="generic">
@@ -57,10 +57,10 @@
 		</property>
 	</bean>
 
-	<!-- importing chartConstantsBean.xml due to https://jira.spring.io/browse/SPR-1142, ideally it would be imported in each of the chart themes file -->
+	&lt;!&ndash; importing chartConstantsBean.xml due to https://jira.spring.io/browse/SPR-1142, ideally it would be imported in each of the chart themes file &ndash;&gt;
 	<import resource="chartConstantsBean.xml"/>
 	<import resource="defaultChartPropertiesBean.xml"/>
 	<import resource="eyeCandySixtiesChartPropertiesBean.xml"/>
-	<import resource="aegeanChartPropertiesBean.xml"/>
+	<import resource="aegeanChartPropertiesBean.xml"/>-->
 	
 </beans>
