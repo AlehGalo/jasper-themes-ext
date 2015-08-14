@@ -30,6 +30,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import net.sf.jasperreports.chartthemes.settings.ChartThemeSettings;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRRuntimeException;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -248,7 +249,6 @@ public class XmlChartTheme extends SimpleChartTheme
 	public static void saveSettings(ChartThemeSettings settings, File file)
 	{
 		Writer writer = null;
-		
 		try
 		{
 			writer = new FileWriter(file);

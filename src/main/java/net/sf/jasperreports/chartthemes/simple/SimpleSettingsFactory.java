@@ -30,6 +30,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.jasperreports.charts.type.EdgeEnum;
+import net.sf.jasperreports.chartthemes.provider.ColorProvider;
+import net.sf.jasperreports.chartthemes.provider.FileImageProvider;
+import net.sf.jasperreports.chartthemes.provider.GradientPaintProvider;
+import net.sf.jasperreports.chartthemes.provider.PaintProvider;
+import net.sf.jasperreports.chartthemes.settings.AxisSettings;
+import net.sf.jasperreports.chartthemes.settings.ChartSettings;
+import net.sf.jasperreports.chartthemes.settings.ChartThemeSettings;
+import net.sf.jasperreports.chartthemes.settings.LegendSettings;
+import net.sf.jasperreports.chartthemes.settings.PlotSettings;
+import net.sf.jasperreports.chartthemes.settings.TitleSettings;
 
 import org.jfree.chart.axis.AxisLocation;
 import org.jfree.chart.plot.PlotOrientation;

@@ -25,6 +25,9 @@ package net.sf.jasperreports.chartthemes.simple;
 
 import org.jfree.chart.block.BlockFrame;
 
+import net.sf.jasperreports.chartthemes.provider.BlockFrameProvider;
+import net.sf.jasperreports.chartthemes.settings.LegendSettings;
+
 /**
  * 
  * @author Lucian Chirita (lucianc@users.sourceforge.net)

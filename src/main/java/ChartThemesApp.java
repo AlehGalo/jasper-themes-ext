@@ -26,6 +26,8 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -35,8 +37,11 @@ import java.util.Map;
 import org.springframework.util.Assert;
 
 import net.sf.jasperreports.chartthemes.simple.AegeanSettingsFactory;
-import net.sf.jasperreports.chartthemes.simple.EyeCandySixtiesSettingsFactory;
 import net.sf.jasperreports.chartthemes.simple.SimpleSettingsFactory;
+import net.sf.jasperreports.chartthemes.simple.VoreSettingsFactoryPage2;
+import net.sf.jasperreports.chartthemes.simple.VoreSettingsFactoryPage3;
+import net.sf.jasperreports.chartthemes.simple.VoreSettingsFactoryPage4;
+import net.sf.jasperreports.chartthemes.simple.VoreSettingsFactoryPage5;
 import net.sf.jasperreports.chartthemes.simple.XmlChartTheme;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -84,23 +89,33 @@ public class ChartThemesApp extends AbstractSampleApp {
 	 *
 	 */
 	public void test() throws JRException {
+		try {
+			themes();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		compile();
 		fill();
-		print();
+		// print();
 		pdf();
-		xmlEmbed();
-		xml();
-		html();
-		rtf();
-		xls();
-		jxl();
-		csv();
-		odt();
-		ods();
-		docx();
-		xlsx();
-		pptx();
-		xhtml();
+		// xmlEmbed();
+		// xml();
+		// html();
+		// rtf();
+		// xls();
+		// jxl();
+		// csv();
+		// odt();
+		// ods();
+		// docx();
+		// xlsx();
+		// pptx();
+		// xhtml();
+	}
+
+	private boolean shouldProcess(File file) {
+		// return file == null ? true : !file.exists();
+		return true;
 	}
 
 	/**
@@ -108,22 +123,39 @@ public class ChartThemesApp extends AbstractSampleApp {
 	 */
 	public void compile() throws JRException {
 		long start = System.currentTimeMillis();
-		JasperCompileManager.compileReportToFile(findFile("reports/AllChartsReport.jrxml").getPath(),
-				TMP_DIR + ALL_CHARTS_REPORT_JASPER);
+		File file = new File(TMP_DIR + ALL_CHARTS_REPORT_JASPER);
+		if (shouldProcess(file)) {
+			JasperCompileManager.compileReportToFile(findFile("reports/AllChartsReport.jrxml").getPath(),
+					file.getPath());
+		}
 		System.err.println("Theme saving time : " + (System.currentTimeMillis() - start));
 	}
 
 	/**
+	 * @throws IOException
 	 *
 	 */
-	public void themes() throws JRException {
+	public void themes() throws JRException, IOException {
 		long start = System.currentTimeMillis();
+
 		XmlChartTheme.saveSettings(SimpleSettingsFactory.createChartThemeSettings(),
-				findFile("net/sf/jasperreports/chartthemes/simple/simple.jrctx"));
-		XmlChartTheme.saveSettings(EyeCandySixtiesSettingsFactory.createChartThemeSettings(),
-				findFile("net/sf/jasperreports/chartthemes/simple/eye.candy.sixties.jrctx"));
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/simple.jrctx")));
+
 		XmlChartTheme.saveSettings(AegeanSettingsFactory.createChartThemeSettings(),
-				findFile("net/sf/jasperreports/chartthemes/simple/aegean.jrctx"));
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/aegean.jrctx")));
+
+		XmlChartTheme.saveSettings(VoreSettingsFactoryPage2.createChartThemeSettings(),
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/vore2.jrctx")));
+
+		XmlChartTheme.saveSettings(VoreSettingsFactoryPage3.createChartThemeSettings(),
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/vore3.jrctx")));
+
+		XmlChartTheme.saveSettings(VoreSettingsFactoryPage4.createChartThemeSettings(),
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/vore4.jrctx")));
+
+		XmlChartTheme.saveSettings(VoreSettingsFactoryPage5.createChartThemeSettings(),
+				new FileWriter(findFile("net/sf/jasperreports/chartthemes/simple/vore5.jrctx")));
+
 		System.err.println("Theme saving time : " + (System.currentTimeMillis() - start));
 	}
 
@@ -133,15 +165,12 @@ public class ChartThemesApp extends AbstractSampleApp {
 	 */
 	public void fill() throws JRException {
 		long start = System.currentTimeMillis();
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		putDataSources(parameters);
-
-		try {
-			JasperFillManager.fillReport(new FileInputStream(new File(TMP_DIR + ALL_CHARTS_REPORT_JASPER)), parameters,
+		File file = new File(TMP_DIR + ALL_CHARTS_REPORT_JRPRINT);
+		if (shouldProcess(file)) {
+			Map<String, Object> parameters = new HashMap<String, Object>();
+			putDataSources(parameters);
+			JasperFillManager.fillReportToFile(TMP_DIR + ALL_CHARTS_REPORT_JASPER, file.getPath(), parameters,
 					new JREmptyDataSource());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
 		System.err.println("Filling time : " + (System.currentTimeMillis() - start));
 	}
@@ -164,7 +193,8 @@ public class ChartThemesApp extends AbstractSampleApp {
 	 */
 	public void pdf() throws JRException {
 		long start = System.currentTimeMillis();
-		JasperExportManager.exportReportToPdfFile(TMP_DIR + ALL_CHARTS_REPORT_JRPRINT);
+		JasperExportManager.exportReportToPdfFile(TMP_DIR + ALL_CHARTS_REPORT_JRPRINT,
+				TMP_DIR + System.currentTimeMillis() + ".pdf");
 		System.err.println("PDF creation time : " + (System.currentTimeMillis() - start));
 	}
 
