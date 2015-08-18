@@ -63,19 +63,17 @@ public class VoreSettingsFactoryPage2 {
 		// RendererProvider provider = new RendererProvider();
 		// provider.setRenderer(createBarRenderer());
 		// plotSettings.setRendererProvider(provider);
-		plotSettings.setSeriesBarWidthSequence(Arrays.asList(0.99 * 0.9,
-				0.99 * 0.89 * 0.9, 0.79 * 0.87 * 0.9));
+		plotSettings.setSeriesBarWidthSequence(Arrays.asList(0.99 * 0.9, 0.99 * 0.89 * 0.9, 0.79 * 0.87 * 0.9));
 
 		List<PaintProvider> list = new ArrayList<PaintProvider>();
-		list.add(new GradientPaintProvider(0.0f, 0.0f, new Color(0, 0,
-				64), 0.0f, 0.0f, Color.blue));
-		list.add(new GradientPaintProvider(0.0f, 10.0f,
-				new Color(0, 64, 0), 0.0f, 0.0f, new Color(152, 203, 0), true));
-		list.add(new GradientPaintProvider(0.0f, 10.0f,
-				new Color(0, 94, 0), 0.0f, 0.0f, new Color(160, 245, 0), true));
+		list.add(new GradientPaintProvider(0.0f, 0.0f, new Color(0, 0, 64), 0.0f, 0.0f, Color.blue));
+		list.add(new GradientPaintProvider(0.0f, 10.0f, new Color(0, 64, 0), 0.0f, 0.0f, new Color(152, 203, 0), true));
+		list.add(new GradientPaintProvider(0.0f, 10.0f, new Color(0, 94, 0), 0.0f, 0.0f, new Color(160, 245, 0), true));
 
 		plotSettings.setSeriesGradientPaintSequence(list);
 		plotSettings.setDomainGridlineVisible(Boolean.TRUE);
+		plotSettings.setGradientPaintTransformer(
+				new StandardGradientPaintTransformer(GradientPaintTransformType.HORIZONTAL));
 
 		AxisSettings rangeAxisSettings = settings.getRangeAxisSettings();
 		rangeAxisSettings.setLocation(AxisLocation.BOTTOM_OR_LEFT);
@@ -107,15 +105,14 @@ public class VoreSettingsFactoryPage2 {
 		renderer.setDrawBarOutline(false);
 
 		// set up gradient paints for series...
-		GradientPaint gp0 = new GradientPaint(0.0f, 0.0f, new Color(0, 0, 64),
-				0.0f, 0.0f, Color.blue);
-		GradientPaint gp2 = new GradientPaint(0.0f, 10.0f, new Color(0, 64, 0),
-				0.0f, 0.0f, new Color(152, 203, 0), true);
-		GradientPaint gp1 = new GradientPaint(0.0f, 10.0f, new Color(0, 94, 0),
-				0.0f, 0.0f, new Color(160, 245, 0), true);
+		GradientPaint gp0 = new GradientPaint(0.0f, 0.0f, new Color(0, 0, 64), 0.0f, 0.0f, Color.blue);
+		GradientPaint gp2 = new GradientPaint(0.0f, 10.0f, new Color(0, 64, 0), 0.0f, 0.0f, new Color(152, 203, 0),
+				true);
+		GradientPaint gp1 = new GradientPaint(0.0f, 10.0f, new Color(0, 94, 0), 0.0f, 0.0f, new Color(160, 245, 0),
+				true);
 
-		renderer.setGradientPaintTransformer(new StandardGradientPaintTransformer(
-				GradientPaintTransformType.CENTER_VERTICAL));
+		renderer.setGradientPaintTransformer(
+				new StandardGradientPaintTransformer(GradientPaintTransformType.CENTER_VERTICAL));
 		renderer.setSeriesPaint(0, gp0);
 		renderer.setSeriesPaint(1, gp1);
 		renderer.setSeriesPaint(2, gp2);

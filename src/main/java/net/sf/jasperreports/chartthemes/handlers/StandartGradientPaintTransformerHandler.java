@@ -4,8 +4,7 @@ import org.exolab.castor.mapping.GeneralizedFieldHandler;
 import org.jfree.ui.GradientPaintTransformType;
 import org.jfree.ui.StandardGradientPaintTransformer;
 
-public class StandartGradientPaintTransformerHandler extends
-		GeneralizedFieldHandler {
+public class StandartGradientPaintTransformerHandler extends GeneralizedFieldHandler {
 
 	/**
 	 *
@@ -24,13 +23,14 @@ public class StandartGradientPaintTransformerHandler extends
 		if (value == null) {
 			return null;
 		}
-		GradientPaintTransformType type = GradientPaintTransformType.CENTER_HORIZONTAL
-				.equals(value) ? GradientPaintTransformType.CENTER_HORIZONTAL
-				: GradientPaintTransformType.CENTER_VERTICAL.equals(value) ? GradientPaintTransformType.CENTER_VERTICAL
-						: GradientPaintTransformType.HORIZONTAL.equals(value) ? GradientPaintTransformType.HORIZONTAL
-								: GradientPaintTransformType.VERTICAL
-										.equals(value) ? GradientPaintTransformType.VERTICAL
-										: null;
+		GradientPaintTransformType type = GradientPaintTransformType.CENTER_HORIZONTAL.toString().equals(value)
+				? GradientPaintTransformType.CENTER_HORIZONTAL
+				: GradientPaintTransformType.CENTER_VERTICAL.toString().equals(value)
+						? GradientPaintTransformType.CENTER_VERTICAL
+						: GradientPaintTransformType.HORIZONTAL.toString().equals(value)
+								? GradientPaintTransformType.HORIZONTAL
+								: GradientPaintTransformType.VERTICAL.toString().equals(value)
+										? GradientPaintTransformType.VERTICAL : null;
 		if (type != null) {
 			return new StandardGradientPaintTransformer(type);
 		}
