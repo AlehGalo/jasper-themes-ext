@@ -150,7 +150,7 @@
 						</categorySeries>
 					</categoryDataset>
 					<barPlot>
-						<plot/>
+						<plot orientation="Horizontal"/>
 						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
 						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
 						<categoryAxisFormat>
@@ -165,7 +165,7 @@
 			</band>
 		</groupHeader>
 	</group>
-	<group name="StackedBar">
+	<!--group name="StackedBar">
 		<groupExpression><![CDATA[null]]></groupExpression>
 		<groupHeader>
 			<band height="400">
@@ -940,5 +940,5 @@
 				</meterChart>
 			</band>
 		</groupHeader>
-	</group>
+	</group> -->
 </jasperReport>

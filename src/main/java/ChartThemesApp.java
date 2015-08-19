@@ -76,7 +76,7 @@ public class ChartThemesApp extends AbstractSampleApp {
 
 	private static final String ALL_CHARTS_REPORT_JRPRINT = "AllChartsReport.jrprint";
 	private static final String ALL_CHARTS_REPORT_JASPER = "AllChartsReport.jasper";
-	private static final String TMP_DIR = System.getProperty("java.io.tmpdir");
+	public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
 
 	/**
 	 *

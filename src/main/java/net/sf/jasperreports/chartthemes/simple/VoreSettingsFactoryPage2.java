@@ -73,7 +73,7 @@ public class VoreSettingsFactoryPage2 {
 		plotSettings.setSeriesGradientPaintSequence(list);
 		plotSettings.setDomainGridlineVisible(Boolean.TRUE);
 		plotSettings.setGradientPaintTransformer(
-				new StandardGradientPaintTransformer(GradientPaintTransformType.HORIZONTAL));
+				new StandardGradientPaintTransformer(GradientPaintTransformType.CENTER_VERTICAL));
 
 		AxisSettings rangeAxisSettings = settings.getRangeAxisSettings();
 		rangeAxisSettings.setLocation(AxisLocation.BOTTOM_OR_LEFT);
