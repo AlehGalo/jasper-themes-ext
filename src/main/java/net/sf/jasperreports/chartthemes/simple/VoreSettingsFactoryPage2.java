@@ -64,11 +64,16 @@ public class VoreSettingsFactoryPage2 {
 		// provider.setRenderer(createBarRenderer());
 		// plotSettings.setRendererProvider(provider);
 		plotSettings.setSeriesBarWidthSequence(Arrays.asList(0.99 * 0.9, 0.99 * 0.89 * 0.9, 0.79 * 0.87 * 0.9));
+		plotSettings.setBackgroundPaint(new GradientPaintProvider(0.0f, 5.0f, new Color(0, 94, 0), 10.0f, 15.0f,
+				new Color(160, 245, 0), true));
 
 		List<PaintProvider> list = new ArrayList<PaintProvider>();
-		list.add(new GradientPaintProvider(0.0f, 0.0f, new Color(0, 0, 64), 0.0f, 0.0f, Color.blue));
-		list.add(new GradientPaintProvider(0.0f, 10.0f, new Color(0, 64, 0), 0.0f, 0.0f, new Color(152, 203, 0), true));
-		list.add(new GradientPaintProvider(0.0f, 10.0f, new Color(0, 94, 0), 0.0f, 0.0f, new Color(160, 245, 0), true));
+		// list.add(new GradientPaintProvider(0.0f, 0.0f, /*new Color(0, 0,
+		// 64)*/ Color.YELLOW, 0.0f, 15.0f, Color.blue, true));
+		list.add(new GradientPaintProvider(0.0f, 0.0f, new Color(0, 64, 0), 0.0f, 0.5f, new Color(152, 203, 0), true));
+		list.add(new GradientPaintProvider(0.0f, 0.5f, new Color(152, 203, 0), 0.0f, 1.0f, new Color(0, 64, 0), true));
+		list.add(new GradientPaintProvider(5.0f, 10.0f, new Color(0, 94, 0), 10.0f, 15.0f, new Color(160, 245, 0),
+				true));
 
 		plotSettings.setSeriesGradientPaintSequence(list);
 		plotSettings.setDomainGridlineVisible(Boolean.TRUE);

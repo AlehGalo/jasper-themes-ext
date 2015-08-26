@@ -127,7 +127,7 @@ public class Vore2Chart {
 		renderer.setDrawBarOutline(false);
 
 		// set up gradient paints for series...
-		GradientPaint gp0 = new GradientPaint(0.0f, 0.0f, new Color(0, 0, 64), 0.0f, 0.0f, Color.blue);
+		GradientPaint gp0 = new GradientPaint(0.0f, 0.0f, new Color(0, 0, 64), 0.8f, 0.8f, Color.blue);
 		GradientPaint gp2 = new GradientPaint(0.0f, 10.0f, new Color(0, 64, 0), 0.0f, 0.0f, new Color(152, 203, 0),
 				true);
 		GradientPaint gp1 = new GradientPaint(0.0f, 10.0f, new Color(0, 94, 0), 0.0f, 0.0f, new Color(160, 245, 0),

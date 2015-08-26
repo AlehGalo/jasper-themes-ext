@@ -128,7 +128,7 @@ public class ChartThemesApp extends AbstractSampleApp {
 			JasperCompileManager.compileReportToFile(findFile("reports/AllChartsReport.jrxml").getPath(),
 					file.getPath());
 		}
-		System.err.println("Theme saving time : " + (System.currentTimeMillis() - start));
+		System.err.println("Compiling : " + (System.currentTimeMillis() - start));
 	}
 
 	/**

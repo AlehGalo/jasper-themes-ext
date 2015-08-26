@@ -1908,8 +1908,8 @@ public class SimpleChartTheme implements ChartTheme {
 		if (colors != null) {
 			int size = colorSequence != null ? colorSequence.length : 0;
 			System.arraycopy(colorSequence, 0, colors, 0, colorSequence.length);
-			System.arraycopy(DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE, 0, colors, size,
-					DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE.length);
+//			System.arraycopy(DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE, 0, colors, size,
+//					DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE.length);
 		}
 	}
 
@@ -2528,7 +2528,7 @@ public class SimpleChartTheme implements ChartTheme {
 			}
 			populateSeriesColors(colors, colorSequence);
 		} else if (themeSeriesPaintProvider != null && !themeSeriesPaintProvider.isEmpty()) {
-			colors = new Paint[DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE.length + themeSeriesPaintProvider.size()];
+			colors = new Paint[/*DefaultDrawingSupplier.DEFAULT_PAINT_SEQUENCE.length + */themeSeriesPaintProvider.size()];
 			colorSequence = new Paint[themeSeriesPaintProvider.size()];
 			List<Paint> themeSeriesColors = new ArrayList<Paint>();
 			for (int i = 0; i < themeSeriesPaintProvider.size(); i++) {
